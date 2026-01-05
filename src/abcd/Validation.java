@@ -3,6 +3,8 @@ package abcd;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+// Validation
 public class Validation {
 	// Double Validation
 	public static double doubleValidation(Scanner userInput, String prompt) {
@@ -36,7 +38,7 @@ public class Validation {
 
 	// String Validation
 	public static String strValidation(Scanner userInput, String prompt) {
-		System.out.println(prompt);
+		System.out.println(prompt);		
 		return userInput.nextLine();
 	}
 
