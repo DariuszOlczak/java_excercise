@@ -2,8 +2,7 @@ package abcd;
 
 import java.util.Scanner;
 
-public class main {
-	
+public class main {	
 	
 	
 	public static void enterNewItem() {
@@ -13,16 +12,8 @@ public class main {
 		int kcal = Validation.intValidation(user_entry, "Please enter calories (kcal) per 100g");
 		double carb= Validation.doubleValidation(user_entry, "Please enter carbohydrates (carb) per 100g");
 		double prot= Validation.doubleValidation(user_entry, "Please enter proteins (prot) per 100g");
-		double fat= Validation.doubleValidation(user_entry, "Please enter fat per 100g");
-		System.out.println("Entered Values:");
-		System.out.println("String: " + fName);
-		System.out.println("Integer: " + kcal);
-		System.out.println("Decimal: " + carb);
-		System.out.println("Decimal: " + prot);
-		System.out.println("Decimal: " + fat);
-		
-		Food newItem = new Food(kcal, carb, prot, fat, fName);
-		
+		double fat= Validation.doubleValidation(user_entry, "Please enter fat per 100g");			
+		Food newItem = new Food(kcal, carb, prot, fat, fName);		
 		newItem.print();
 	}
 	
