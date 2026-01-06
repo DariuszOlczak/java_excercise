@@ -3,51 +3,74 @@ package abcd;
 import java.util.Scanner;
 
 public class main {
-
-	public static void action() {
+	
+	
+	
+	public static void enterNewItem() {
 		// Create a scanner object
 		Scanner user_entry = new Scanner(System.in);
-
-		String str = Validation.strValidation(user_entry, "Please enter String");
-		int number = Validation.intValidation(user_entry, "Please enter ineger");
-		double decimal= Validation.doubleValidation(user_entry, "Please enter decimal number");
+		String fName = Validation.strValidation(user_entry, "Please enter food name:");
+		int kcal = Validation.intValidation(user_entry, "Please enter calories (kcal) per 100g");
+		double carb= Validation.doubleValidation(user_entry, "Please enter carbohydrates (carb) per 100g");
+		double prot= Validation.doubleValidation(user_entry, "Please enter proteins (prot) per 100g");
+		double fat= Validation.doubleValidation(user_entry, "Please enter fat per 100g");
 		System.out.println("Entered Values:");
-		System.out.println("String: " + str);
-		System.out.println("Integer: " + number);
-		System.out.println("Decimal: " + decimal);
-		user_entry.close();
+		System.out.println("String: " + fName);
+		System.out.println("Integer: " + kcal);
+		System.out.println("Decimal: " + carb);
+		System.out.println("Decimal: " + prot);
+		System.out.println("Decimal: " + fat);
+		
+		Food newItem = new Food(kcal, carb, prot, fat, fName);
+		
+		newItem.print();
+	}
+	
+	
+	public static void menu() {
+		Scanner userInput = new Scanner(System.in);
+		int choice;
+		do {
+			System.out.println("Plese make a selection:");
+			System.out.println("1. Enter new item");
+			System.out.println("2. List items");
+			System.out.println("3. Update item");
+			System.out.println("4. Delete item");
+			System.out.println("5. Exit");
+			choice = Validation.intValidation(userInput, "Please enter a number (1-5)");
+			if (choice < 1 || choice > 5 ) {
+				System.out.println("Pleae enter number between 1 and 5");
+
+			}
+		} while (choice < 1 || choice > 5);
+
+		switch (choice) {
+			case 1 :
+				System.out.println("Enter new item");
+				enterNewItem();
+				break;
+			case 2: 
+				System.out.println("List items");
+				break;
+			case 3:
+				System.out.println("Update item");
+				break;
+			case 4:
+				System.out.println("Delete item");
+				break;
+			case 5:
+				System.out.println("Exiting");
+				break;
+
+		}
+
+		userInput.close();
 	}
 
 
 	public static void main(String[] args) {
-
-		Scanner userInput = new Scanner(System.in);
-		System.out.println("Plese make a selection:");
-		System.out.println("1. Enter new item");
-		System.out.println("2. List items");
-		System.out.println("3. List items");
-		System.out.println("4. Delete item");
-		int choice;
-		while (0 > choice && choice > 3 ) {
-			System.out.println("Pleae enter number between 1 and 4");
-			int choice = Validation.intValidation(userInput, "Please enter a number");
-		}
-		switch (choice) {
-		case 1 : System.out.println("Enter new item");
-		break;
-		case 2: System.out.println("List items");
-		break;
-		case 3: System.out.println("Update item");
-		break;
-		case 4: System.out.println("Delete item");
-		break;
-		default: System.out.println("Please enter a number between 1-4");
-
-		}
-
-
-
-		// action();
+		menu();
+		
 	}
 
 }
