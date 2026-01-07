@@ -7,14 +7,24 @@ public class main {
 	
 	public static void enterNewItem() {
 		// Create a scanner object
+		FoodList foodList = new FoodList();
 		Scanner user_entry = new Scanner(System.in);
+		
 		String fName = Validation.strValidation(user_entry, "Please enter food name:");
 		int kcal = Validation.intValidation(user_entry, "Please enter calories (kcal) per 100g");
 		double carb= Validation.doubleValidation(user_entry, "Please enter carbohydrates (carb) per 100g");
 		double prot= Validation.doubleValidation(user_entry, "Please enter proteins (prot) per 100g");
-		double fat= Validation.doubleValidation(user_entry, "Please enter fat per 100g");			
-		Food newItem = new Food(kcal, carb, prot, fat, fName);		
-		newItem.print();
+		double fat= Validation.doubleValidation(user_entry, "Please enter fat per 100g");	
+		
+		Food newItem = new Food(kcal, carb, prot, fat, fName);
+		foodList.add(newItem);	
+		int index = foodList.indexOf(newItem);
+		System.out.println(foodList.get(index));
+		
+		for (int i = 0; i < foodList.size(); i++) {
+			Food f = foodList.get(i);
+			System.out.println(f.getFname());
+		}
 	}
 	
 	
