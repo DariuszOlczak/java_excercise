@@ -1,8 +1,5 @@
 package arraypractice;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,7 +14,7 @@ public class main {
 			System.out.println("2. Remove user");
 			System.out.println("3. List users");
 			System.out.println("4. Update user");
-			System.out.println("5. Quit");
+			System.out.println("5. Save and Exit");
 			System.out.println("Plese make a selection:");
 			decision = validateInt(userInput);
 			switch(decision) {
@@ -36,6 +33,7 @@ public class main {
 				break;
 			case 5:
 				System.out.println("Goodbye");
+				fileManager.wrightToFile(names, "names.txt");
 				running = false;
 				break;
 			}									
@@ -110,26 +108,19 @@ public class main {
 	
 	// Load from file
 	
-	public static ArrayList<String> loadFromFile(ArrayList<String> names,String filename){
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(filename))){
-			String line;
-			while ((line = br.readLine()) != null) {
-				names.add(line);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			}		
-		return names;
-	}
+	
 
 
 	public static void main(String[] args) {
 
 		ArrayList<String> names = new ArrayList<>();
-		loadFromFile(names, "names.txt");
 		Scanner userInput = new Scanner(System.in);	
+		
+		fileManager.loadFromFile(names, "names.txt");
+		//System.out.println("Current directory: " + new File(".").getAbsolutePath());
+		
 		menu(names, userInput);			
+		
 		userInput.close();
 	}
 
