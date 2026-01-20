@@ -4,11 +4,10 @@ import java.util.Scanner;
 
 public class main {	
 	
+	Scanner user_entry = new Scanner(System.in);
+	private static FoodList foodList = new FoodList();
 	
-	public static void enterNewItem() {
-		// Create a scanner object
-		FoodList foodList = new FoodList();
-		Scanner user_entry = new Scanner(System.in);
+	public static void enterNewItem(Scanner user_entry, FoodList foodlist) {
 		
 		String fName = Validation.strValidation(user_entry, "Please enter food name:");
 		int kcal = Validation.intValidation(user_entry, "Please enter calories (kcal) per 100g");
@@ -25,6 +24,7 @@ public class main {
 			Food f = foodList.get(i);
 			System.out.println(f.getFname());
 		}
+		user_entry.close();
 	}
 	
 	
@@ -48,7 +48,7 @@ public class main {
 		switch (choice) {
 			case 1 :
 				System.out.println("Enter new item");
-				enterNewItem();
+				enterNewItem(userInput, foodList);
 				break;
 			case 2: 
 				System.out.println("List items");
