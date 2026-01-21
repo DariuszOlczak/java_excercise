@@ -71,7 +71,7 @@ public class main {
 		userInput.nextLine();
 		for (int i = 0; i < foodList.size(); i++) {
 			Food f = foodList.get(i);
-			if (f.getFname().equals(itemName)) {
+			if (f.getFname().toLowerCase().equals(itemName.toLowerCase())) {
 				foodList.remove(i);				
 			}
 			System.out.println("Removed " + f.getFname());
