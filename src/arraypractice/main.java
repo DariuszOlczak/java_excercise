@@ -10,10 +10,10 @@ public class main {
 		boolean running = true;
 		int decision;
 		while(running) {
-			System.out.println("\n1. Add user");
-			System.out.println("2. Remove user");
-			System.out.println("3. List users");
-			System.out.println("4. Update user");
+			System.out.println("\n1. Add name");
+			System.out.println("2. Remove name");
+			System.out.println("3. List name");
+			System.out.println("4. Update name");
 			System.out.println("5. Save and Exit");
 			System.out.println("Plese make a selection:");
 			decision = validateInt(userInput);

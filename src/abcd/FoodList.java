@@ -16,6 +16,20 @@ public class FoodList implements MyList<Food> {
 			foodList.remove(index);
 		}		
 	}
+	
+	@Override
+	public void list() {
+		System.out.println("4. List items\n");
+		if (foodList.isEmpty()) {
+			System.out.println("No items in the list\n");
+		}		
+		for (int i = 0; i < foodList.size(); i++) {
+			Food f = foodList.get(i);
+			int number = i + 1; 
+			System.out.println(number + ". " + f.toString());
+		}
+		
+	}
 
 	@Override
 	public Food get(int index) {
@@ -44,6 +58,8 @@ public class FoodList implements MyList<Food> {
 	public int indexOf(Food element) {
 		return foodList.indexOf(element);
 	}
+
+	
 
 
 

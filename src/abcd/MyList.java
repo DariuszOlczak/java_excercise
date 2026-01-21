@@ -4,6 +4,7 @@ package abcd;
 public interface MyList<T extends NutriValues> {
 	void add(T element);
 	void remove(int index);
+	void list();
 	T get(int index);
 	int size();
 	int totalCalories();

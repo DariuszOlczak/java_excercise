@@ -19,6 +19,20 @@ public class NutiValList implements MyList<NutriValues>{
 		} 
 
 	}
+	
+	@Override
+	public void list() {
+		System.out.println("List items\n");
+		if (nutriValuesList.isEmpty()) {
+			System.out.println("No items in the list\n");
+		}		
+		for (int i = 0; i < nutriValuesList.size(); i++) {
+			NutriValues nV = nutriValuesList.get(i);
+			nV.print();
+		}
+		
+	}
+	
 	@Override
 	public NutriValues get(int index) {		
 		if (index >= 0 && index < nutriValuesList.size()) {
@@ -45,6 +59,8 @@ public class NutiValList implements MyList<NutriValues>{
 	public int indexOf(NutriValues element) {		
 		return nutriValuesList.indexOf(element);
 	}
+
+	
 
 	
 
